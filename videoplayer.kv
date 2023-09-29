@@ -1,0 +1,71 @@
+<Mylayout>
+    name: 'screen3'
+    canvas.before:
+        Color:
+            rgba: 0.7, 0.7, 0.7, 1 # Set the background color to white (RGBA format)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        padding: 20
+        spacing: 20
+
+        FileChooserIconView:
+            id: file_chooser
+            on_selection: root.selected_file(*args)
+
+        RoundedButton:
+            id: convert_button
+            text: 'Convert to Pdf'
+            size_hint: (0.4, 0.1)
+            pos_hint: {'center_x': 0.5}
+            on_press: root.extract_frames_and_create_pdf()
+
+
+<RoundedButton@Button>
+    canvas.before:
+        Color:
+            rgba: (0.6,0.6,0.6,1) if self.state == 'normal' else (0, 0, 0, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+
+<CustomPopup>:
+    title: 'Rename and Save Pdf'
+    size_hint: None, None
+    size: 400, 200
+    auto_dismiss: False  # Prevent the popup from automatically closing when clicked outside
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+
+        TextInput:
+            id: new_name
+            hint_text: 'Rename File'
+            size_hint_y: None
+            height: 40
+            multiline: False
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+
+            Button:
+                text: 'Save'
+                on_release: root.save_popup()
+
+            Button:
+                text: 'Cancel'
+                on_release: root.dismiss()
+
+        Label:
+            id: message_label
+            text: ''
+            size_hint_y: None
+            height: 40
+            color: 1, 0, 0, 1  # Red text color for the message
+            opacity: 0  # Initially set opacity to 0 (invisible)

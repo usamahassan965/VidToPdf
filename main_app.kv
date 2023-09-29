@@ -1,0 +1,34 @@
+MDBoxLayout:
+    orientation: 'vertical'
+    size: root.width, root.height
+
+    MDTopAppBar:
+        title: 'Bottom Navbar'
+
+    MDBottomNavigation:
+        size: root.width, root.height
+
+        MDBottomNavigationItem:
+            name: 'screen1'
+            text: 'Recorder'
+            icon: 'video-box'
+
+            Screenrecordmenu:  # Add the Screenrecordmenu as a child of the first screen
+                id: recorder_screen
+
+        MDBottomNavigationItem:
+            name: 'screen2'
+            text: 'Clip'
+            icon: 'content-cut'
+
+            Videoeditor:  # Add the Screenrecordmenu as a child of the first screen
+                id: video_editor
+
+        MDBottomNavigationItem:
+            name: 'screen3'
+            text: 'Pdf_Convertor'
+            icon: 'file-pdf-box'
+
+            Mylayout:  # Add the Screenrecordmenu as a child of the first screen
+                id: recorder_screen
+

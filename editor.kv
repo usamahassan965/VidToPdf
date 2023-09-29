@@ -1,0 +1,72 @@
+<Videoeditor>
+    name: 'screen2'
+    canvas.before:
+        Color:
+            rgba: 0.7, 0.7, 0.7, 1  # Set the background color to white (RGBA format)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    video_name_input: video_name_input
+    start_time_input: start_time_input
+    end_time_input: end_time_input
+    output_label: output_label
+    cut_button: cut_button
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 15
+
+        GridLayout:
+            cols: 2
+            spacing: 15
+
+            Label:
+                text: "Video Name:"
+                size_hint_x: None
+                width: 120
+                height: 30
+                color: 0, 0, 0, 1
+
+            TextInput:
+                id: video_name_input
+                hint_text: "Enter Video Name (e.g., abc.mp4)"
+                height: 15  # Adjust the height as needed
+                size_hint_x: 0.6  # Adjust the width as a fraction of the parent width
+
+            Label:
+                text: "Start Time (s):"
+                size_hint_x: None
+                width: 120
+                height: 30
+                color: 0, 0, 0, 1
+
+            TextInput:
+                id: start_time_input
+                hint_text: "Start Time (s)"
+                height: 15  # Adjust the height as needed
+                size_hint_x: 0.6  # Adjust the width as a fraction of the parent width
+
+            Label:
+                text: "End Time (s):"
+                size_hint_x: None
+                width: 120
+                height: 30
+                color: 0, 0, 0, 1
+
+            TextInput:
+                id: end_time_input
+                hint_text: "End Time (s)"
+                height: 15  # Adjust the height as needed
+                size_hint_x: 0.6  # Adjust the width as a fraction of the parent width
+
+        Button:
+            id: cut_button
+            text: "Cut Video"
+            size_hint: None, None
+            size: 200, 50
+            pos_hint: {'center_x': 0.5}
+            on_press: root.cut_video()
+
+        Label:
+            id: output_label
