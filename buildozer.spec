@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = VideoToPdf
+title = VideotoPdf
 
 # (str) Package name
 package.name = myapp
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,pillow,kivymd,reportlab,numpy,moviepy,ffpyplayer,opencv-python,requests,urllib3
+requirements = python3,kivy,kivymd,reportlab,numpy,moviepy,opencv-python
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -101,10 +101,10 @@ fullscreen = 0
 #android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
-android.api = 31
+#android.api = 31
 
 # (int) Minimum API your APK / AAB will support.
-android.minapi = 21
+#android.minapi = 21
 
 # (int) Android SDK version to use
 #android.sdk = 20
@@ -136,7 +136,7 @@ android.minapi = 21
 # agreements. This is intended for automation only. If set to False,
 # the default, you will be shown the license when first running
 # buildozer.
-# android.accept_sdk_license = False
+android.accept_sdk_license = True
 
 # (str) Android entry point, default is ok for Kivy-based app
 #android.entrypoint = org.kivy.android.PythonActivity
@@ -249,7 +249,7 @@ android.minapi = 21
 #android.manifest.orientation = fullSensor
 
 # (list) Android additional libraries to copy into libs/armeabi
-android.add_libs_armeabi = libs/android/*.so
+#android.add_libs_armeabi = libs/android/*.so
 #android.add_libs_armeabi_v7a = libs/android-v7/*.so
 #android.add_libs_arm64_v8a = libs/android-v8/*.so
 #android.add_libs_x86 = libs/android-x86/*.so
@@ -322,7 +322,6 @@ android.allow_backup = True
 
 # (str) python-for-android branch to use, defaults to master
 #p4a.branch = master
-p4a.branch = release-2022.12.20
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD
@@ -406,7 +405,7 @@ ios.codesign.allowed = false
 log_level = 2
 
 # (int) Display warning if buildozer is run as root (0 = False, 1 = True)
-warn_on_root = 1
+warn_on_root = 0
 
 # (str) Path to build artifact storage, absolute or relative to spec file
 # build_dir = ./.buildozer
